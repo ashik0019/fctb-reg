@@ -108,7 +108,7 @@
 <script src="{{asset('backend/js/demo.js')}}"></script>
 <!-- toastr js  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-{{--{!! Toastr::message() !!}--}}
+{!! Toastr::message() !!}
 <script>
     @if($errors->any())
         @foreach($errors->all() as $error )

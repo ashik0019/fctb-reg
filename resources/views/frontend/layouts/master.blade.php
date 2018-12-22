@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{asset('frontend/css/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/select2.min.css')}}">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    {{--toastr js--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     @yield('css')
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
@@ -56,6 +58,19 @@
     <script src="{{asset('frontend/js/select2.min.js')}}"></script>
     <script src="{{asset('frontend/js/custom.js')}}"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <!-- toastr js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
+    <script>
+        @if($errors->any())
+        @foreach($errors->all() as $error )
+        toastr.error('{{$error}}','Error',{
+            closeButton:true,
+            progressBar:true
+        });
+        @endforeach
+        @endif
+    </script>
 
     @yield('js')
 </fieldset>
